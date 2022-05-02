@@ -1,1 +1,9 @@
-/* add home page styles here */
+#dog-form {
+    display: flex;
+    flex-direction: column;
+}
+label {
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+}
