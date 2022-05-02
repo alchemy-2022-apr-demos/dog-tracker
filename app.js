@@ -1,7 +1,14 @@
+import { renderDog } from './utils.js';
+
 const dogForm = document.getElementById('dog-form');
 const dogList = document.getElementById('dog-list');
 
+const userInput = document.getElementById('user-name');
+const save = document.getElementById('save');
+
 let dogs = [];
+let users = [];
+
 dogForm.addEventListener('submit', (e) => {
     // what is e??
     // e is what gets passed to your callback
@@ -38,9 +45,32 @@ function renderDogs() {
     // loop through each dog in dogs
     for (let dog of dogs) {
         //   create an li with the dog's name and age
-        const dogLI = document.createElement('li');
-        dogLI.textContent = `${dog.name}: ${dog.age} years`;
+        const li = renderDog(dog);
         //   append the li to the ul
-        dogList.append(dogLI);
+        dogList.append(li);
     }
+}
+
+save.addEventListener('click', () => {
+    // create a new user object
+    // {name: Julie, dogCount: 2}
+    //   name: nameInput.value
+    //   dogCount: length of dogs array
+    const user = {
+        name: userInput.value,
+        dogCount: dogs.length,
+    };
+    // push the user onto the users array
+    users.push(user);
+    // render the users (renderUsers and renderUser)
+    renderUsers();
+    // reset the dogs array
+    dogs = [];
+    renderDogs();
+});
+
+function renderUsers() {
+    // loop through the list of users
+    // call renderUser for each user
+    console.log(users);
 }
