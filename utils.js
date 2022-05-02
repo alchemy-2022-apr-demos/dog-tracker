@@ -8,4 +8,8 @@ export function renderDog(dog) {
 
 export function renderUser(user) {
     // create an LI for each user
+    console.log(user);
+    const userLI = document.createElement('li');
+    userLI.textContent = `${user.name}: ${user.dogCount} dogs`;
+    return userLI;
 }

@@ -1,8 +1,9 @@
-import { renderDog } from './utils.js';
+import { renderDog, renderUser } from './utils.js';
 
 const dogForm = document.getElementById('dog-form');
 const dogList = document.getElementById('dog-list');
 
+const userList = document.getElementById('user-list');
 const userInput = document.getElementById('user-name');
 const save = document.getElementById('save');
 
@@ -70,7 +71,15 @@ save.addEventListener('click', () => {
 });
 
 function renderUsers() {
-    // loop through the list of users
-    // call renderUser for each user
+    // reset the user input
+    userInput.value = '';
+    // reset the user list
+    userList.textContent = '';
+    for (let user of users) {
+        // loop through the list of users
+        // call renderUser for each user
+        const li = renderUser(user);
+        userList.append(li);
+    }
     console.log(users);
 }
